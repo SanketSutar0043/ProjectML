@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Loan Predict Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+	  Gender:
+   	 <input type="radio" name="Gender" value="1">Male
+   	 <input type="radio" name="Gender" value="0">Female
+   	 <br>
+      
+    	Married:
+    <input type="radio" name="Married" value="1">Yes
+    <input type="radio" name="Married" value="0">No
+      
+    <br>
+   
+	Dependents:
+     <input type="radio" name="Dependents" value="3">3 or 3+ person
+    <input type="radio" name="Dependents" value="2">2 person
+    <input type="radio" name="Dependents" value="1">1 person
+    <input type="radio" name="Dependents" value="0">No person
+      
+    <br>
+ 	Education:
+    <input type="radio" name="Education" value="0">Graduate
+    <input type="radio" name="Education" value="1">Not Graduate
+      
+    <br>
+	Self_Employed:
+    <input type="radio" name="Self_Employed" value="0">No
+    <input type="radio" name="Self_Employed" value="1">Yes
+      
+    <br>	
+	Credit_History:
+    <input type="radio" name="Credit_History" value="0.0">No
+    <input type="radio" name="Credit_History" value="1.0">Yes
+      
+    <br>
+	 LoanAmount:
+    <input type="number" id="LoanAmount" name="LoanAmount">
+      
+    <br>
+	Property_Area:
+    <input type="radio" name="Property_Area" value="0">Rural
+    <input type="radio" name="Property_Area" value="1">Semiurban
+    <input type="radio" name="Property_Area="2">Urban
+    <br>	
+	
+     Total Income:
+    <input type="number" id="Total_Income" name="Total_Income">
+      
+    <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
